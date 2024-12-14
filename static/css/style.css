@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: url("/static/img/ComeInWash.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #384047;
+}
+
+h1 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 2.5em;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 1);
+  color: white;
+  margin: 0 0 20px 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.top_menu {
+  max-width: 300px;
+  margin: 0 auto 0 auto;
+  padding: 0px 0px;
+  display: none;
+}
+
+.top_menu_s {
+  max-width: 300px;
+  margin: 0 auto 0 auto;
+  padding: 0px 0px;
+  display: none;
+}
+
+.content_form {
+  max-width: 300px;
+  margin: 0px auto;
+  padding: 10px 20px;
+  border: 2px solid rgba(255, 0, 0, 1);
+  background: #F6F8F9;
+}
+
+input[type="password"],
+input[type="datetime"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #E8EEEF;
+  color: #8A97A0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 2px solid rgba(255,255,255,0.1);
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #E2E6E7;
+  color: black;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+  font-weight: 900;
+}
+
+input[type="text"]::placeholder {
+  color: black;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+input[type="number"]::placeholder {
+  color: black;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+input[type="text"]:focus {
+  transition: border background-color .2s linear;
+  border: 2px solid green;
+  background-color: #FFFFFF;
+}
+
+input[type="number"]:focus {
+  transition: border background-color .2s linear;
+  border: 2px solid green;
+  background-color: #FFFFFF;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 12px 12px 12px 0;
+  width: 20px;
+  height: 20px;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.submit_button {
+  font-family: 'Black Han Sans', sans-serif;
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4BC970;
+  font-size: 25px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3AC162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+.save_button {
+  font-family: 'Black Han Sans', sans-serif;
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #059EFC;
+  font-size: 25px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #7CC5F2;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+.download_button {
+  font-family: 'Black Han Sans', sans-serif;
+  padding: 10px 10px 10px 10px;
+  color: #FFF;
+  background-color: #4BC970;
+  font-size: 25px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3AC162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+.update_button {
+  font-family: 'Black Han Sans', sans-serif;
+  padding: 10px 10px 10px 10px;
+  color: #FFF;
+  background-color: #059EFC;
+  font-size: 25px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #7CC5F2;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 10px;
+  border: none;
+}
+
+legend {
+  font-family: 'Black Han Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  font-family: 'Jua', sans-serif;
+  font-weight: 300;
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-size: 16px;
+  font-weight: 300;
+  display: inline;
+}
+
+input[type="date"] {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.1);
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #E2E6E7;
+  color: black;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 8px;
+}
+
+input[type='date']:before {
+  color: black;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+input[type="date"]:focus {
+  transition: border background .2s linear;
+  border: 2px solid green;
+  background-color: #FFFFFF;
+}
+
+input[type="file"] {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 0px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+::-webkit-file-upload-button {
+  background: white;
+  color: black;
+}
+
+.line_break {
+  border: none;
+  margin-bottom: 8px;
+}
+
+.top_button {
+  font-family: 'Black Han Sans', sans-serif;
+  background-color: white;
+  font-size: 1.0em;
+  padding: 10px 20px;
+  border: none;
+  margin: auto 0 auto auto;
+  text-align: right;
+}
+
+.more_button {
+  font-family: 'Black Han Sans', sans-serif;
+  background-color: white;
+  color: black;
+  font-size: 1.0em;
+  padding: 10px 20px;
+  border: none;
+  margin: auto 0 auto auto;
+  text-align: right;
+  text-decoration: none;
+}
+
+.wash_option {
+  display: none;
+}
+
+.wash_option_s {
+  display: none;
+}
+
+.success-popup  {
+    transition: .3s ease all;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (min-width: 480px) {
+
+  .content_form {
+    max-width: 480px;
+  }
+
+  .top_menu {
+    max-width: 480px;
+    display:block;
+  }
+
+  .wash_option {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 479px) {
+
+  .top_menu_s {
+    display:block;
+  }
+
+  .wash_option_s {
+    display: block;
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito:400,300' type='text/css'>
+    <link rel="stylesheet" href="static/css/fontawesome-6.2.0/css/all.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>ComeInWash</title>
+  </head>
+  <body>
+    <div class="top_menu">
+      <button type="button" class="top_button" onClick="location.href='/'"><i class="fa fa-home"></i> 홈 화면</button>
+      <button type="button" class="top_button" onClick="location.href='/input'"><i class="fa fa-pen"></i> 입력 화면</button>
+      <div class="dropdown" style="display: inline;">
+        <button class="top_button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-sharp fa-solid fa-list-ul"></i> 도구 더보기
+        </button>
+          <ul class="dropdown-menu">
+            <li><a type="button" class="more_button" href="/work_log">작업일지 보기</a></li>
+            <li><a type="button" class="more_button" href="/recent_data">최근 20개 보기</a></li>
+            <li><a type="button" class="more_button" href="/delete_data" onclick="return confirm('최근 데이터 1개를 삭제하시겠습니까?')">직전 데이터 삭제</a></li>
+            <li><form method="POST" action="/revenue">
+              <button type="submit" class="more_button" name="period" value="Ratio">매출 비율</button>
+              <button type="submit" class="more_button" name="period" value="ME">월별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="W-MON">주별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="D">일별 매출액</button>
+            </form></li>
+          </ul>
+        </div>
+    </div>
+    <div class="top_menu_s">
+      <button type="button" class="top_button" onClick="location.href='/'"><i class="fa fa-home"></i> 홈</button>
+      <button type="button" class="top_button" onClick="location.href='/input'"><i class="fa fa-pen"></i> 편집</button>
+      <div class="dropdown" style="display: inline;">
+        <button class="top_button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-sharp fa-solid fa-list-ul"></i> 더보기
+        </button>
+          <ul class="dropdown-menu">
+            <li><a type="button" class="more_button" href="/work_log">작업일지 보기</a></li>
+            <li><a type="button" class="more_button" href="/recent_data">최근 20개 보기</a></li>
+            <li><a type="button" class="more_button" href="/delete_data" onclick="return confirm('최근 데이터 1개를 삭제하시겠습니까?')">직전 데이터 삭제</a></li>
+            <li><form method="POST" action="/revenue">
+              <button type="submit" class="more_button" name="period" value="Ratio">매출 비율</button>
+              <button type="submit" class="more_button" name="period" value="ME">월별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="W-MON">주별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="D">일별 매출액</button>
+            </form></li>
+          </ul>
+      </div>
+    </div>
+    <form class="content_form" method="POST" action="/data">
+        <h1>컴인워시</h1>
+        <fieldset>
+          <legend><i class="fa-solid fa-circle-exclamation" style="color:red;font-size: 1.2em;"></i> 차량 번호 검색
+          </legend>
+          <label for="car_num">차량 번호:</label>
+          <input type="number" id="car_num" name="car_number" placeholder="차량번호를 입력해주세요">
+        </fieldset>
+
+        <fieldset>
+          <legend><i class="fa-sharp fa-solid fa-circle-plus" style="color:red;font-size: 1.2em;"></i> 세부 검색
+          </legend>
+          <label for="car_type">차량 종류:</label>
+          <input type="text" id="car_type" name="car_type" placeholder="차량 종류를 입력해주세요">
+
+          <label for="remark_word">포함 단어:</label>
+          <input type="text" id="remark_word" name="remark_word" placeholder="단어를 입력해주세요">
+
+          <label for="start_date">검색 날짜:</label>
+          <!--  <input type="text" id="start_date" name="start_date" placeholder="MM/DD/YYYY" onfocus="(this.type='date')" onblur="(this.type='text')">  -->
+          <input type="date" id="start_date" name="start_date" max="2120-08-01" min="2020-08-01">
+          <input type="date" id="end_date" name="end_date" max="2120-08-01" min="2020-08-01" value={{current_date}}>
+          <hr class="line_break">
+
+          <label>결제 방식:</label>
+          <input type="checkbox" id="ch1" value="카드" name="pay_option"><label class="light" for="ch1">카드</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch2" value="현금" name="pay_option"><label class="light" for="ch2">현금</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch3" value="이체" name="pay_option"><label class="light" for="ch3">이체</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch4" value="정산" name="pay_option"><label class="light" for="ch4">정산</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch5" value="서비스" name="pay_option"><label class="light" for="ch5">서비스</label>
+
+        </fieldset>
+        <button type="submit" class="submit_button">검색 시작  <i class="fa fa-search"></i></button>
+      </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>

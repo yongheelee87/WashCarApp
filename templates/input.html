@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Nunito:400,300' type='text/css'>
+    <link rel="stylesheet" href="static/css/fontawesome-6.2.0/css/all.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>ComeInWash</title>
+  </head>
+  <body>
+    <div class="top_menu">
+      <button type="button" class="top_button" onClick="location.href='/'"><i class="fa fa-home"></i> 홈 화면</button>
+      <button type="button" class="top_button" onClick="location.href='/input'"><i class="fa fa-pen"></i> 입력 화면</button>
+      <div class="dropdown" style="display: inline;">
+        <button class="top_button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-sharp fa-solid fa-list-ul"></i> 도구 더보기
+        </button>
+          <ul class="dropdown-menu">
+            <li><a type="button" class="more_button" href="/work_log">작업일지 보기</a></li>
+            <li><a type="button" class="more_button" href="/recent_data">최근 20개 보기</a></li>
+            <li><a type="button" class="more_button" href="/delete_data" onclick="return confirm('최근 데이터 1개를 삭제하시겠습니까?')">직전 데이터 삭제</a></li>
+            <li><form method="POST" action="/revenue">
+              <button type="submit" class="more_button" name="period" value="Ratio">매출 비율</button>
+              <button type="submit" class="more_button" name="period" value="ME">월별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="W-MON">주별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="D">일별 매출액</button>
+            </form></li>
+          </ul>
+      </div>
+    </div>
+    <div class="top_menu_s">
+      <button type="button" class="top_button" onClick="location.href='/'"><i class="fa fa-home"></i> 홈</button>
+      <button type="button" class="top_button" onClick="location.href='/input'"><i class="fa fa-pen"></i> 편집</button>
+      <div class="dropdown" style="display: inline;">
+        <button class="top_button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-sharp fa-solid fa-list-ul"></i> 더보기
+        </button>
+          <ul class="dropdown-menu">
+            <li><a type="button" class="more_button" href="/work_log">작업일지 보기</a></li>
+            <li><a type="button" class="more_button" href="/recent_data">최근 20개 보기</a></li>
+            <li><a type="button" class="more_button" href="/delete_data" onclick="return confirm('최근 데이터 1개를 삭제하시겠습니까?')">직전 데이터 삭제</a></li>
+            <li><form method="POST" action="/revenue">
+              <button type="submit" class="more_button" name="period" value="Ratio">매출 비율</button>
+              <button type="submit" class="more_button" name="period" value="ME">월별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="W-MON">주별 매출액</button>
+              <button type="submit" class="more_button" name="period" value="D">일별 매출액</button>
+            </form></li>
+          </ul>
+      </div>
+    </div>
+    <form class="content_form" method="POST" action="/input_data">
+        <h1>컴인워시</h1>
+        <fieldset>
+          <legend class="top_legend">
+            {% if file_close == 'Open' %}
+              <i class="fa-solid fa-triangle-exclamation" style="color:red;font-size: 1.2em;"></i> 엑셀 파일 종료 필요
+            {% else %}
+              <i class="fa-sharp fa-solid fa-circle-info" style="color:red;font-size: 1.2em;"></i> 차량 정보 입력
+            {% endif %}
+          </legend>
+          <label for="car_num">차량 번호:</label>
+          <input type="text" id="car_num" name="car_number" placeholder="차량번호를 입력해주세요">
+          <label for="car_type">차량 종류:</label>
+          <input type="text" id="car_type" name="car_name" placeholder="차량 종류를 입력해주세요">
+
+          <label>세차 종류:</label>
+          <div class="wash_option">
+            <input type="checkbox" id="wash_ch1" value="노터치" name="wash_option"><label class="light" for="wash_ch1">노터치</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch2" value="외부" name="wash_option"><label class="light" for="wash_ch2">외부</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch3" value="실내" name="wash_option"><label class="light" for="wash_ch3">실내</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch4" value="습식 폼" name="wash_option"><label class="light" for="wash_ch4">습식 폼</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch5" value="광택" name="wash_option"><label class="light" for="wash_ch5">광택</label>
+            <br>
+            <input type="checkbox" id="wash_ch6" value="발수코팅" name="wash_option"><label class="light" for="wash_ch6">발수코팅</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch7" value="물왁스" name="wash_option"><label class="light" for="wash_ch7">물왁스</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch8" value="타르제거" name="wash_option"><label class="light" for="wash_ch8">타르제거</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" id="wash_ch9" value="석회제거" name="wash_option"><label class="light" for="wash_ch9">석회제거</label>
+          </div>
+          <div class="wash_option_s">
+            <input type="checkbox" id="wash_s_ch1" value="노터치" name="wash_option"><label class="light" for="wash_s_ch1">노터치</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_s_ch2" value="외부" name="wash_option"><label class="light" for="wash_s_ch2">외부</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_s_ch3" value="실내" name="wash_option"><label class="light" for="wash_s_ch3">실내</label>
+            <br>
+            <input type="checkbox" id="wash_s_ch4" value="습식 폼" name="wash_option"><label class="light" for="wash_s_ch4">습식 폼</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_s_ch5" value="발수코팅" name="wash_option"><label class="light" for="wash_s_ch5">발수코팅</label>
+            <br>
+            <input type="checkbox" id="wash_s_ch6" value="광택" name="wash_option"><label class="light" for="wash_s_ch6">광택</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="wash_s_ch7" value="물왁스" name="wash_option"><label class="light" for="wash_s_ch7">물왁스</label>
+            <br>
+            <input type="checkbox" id="wash_s_ch8" value="타르제거" name="wash_option"><label class="light" for="wash_s_ch8">타르제거</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" id="wash_s_ch9" value="석회제거" name="wash_option"><label class="light" for="wash_s_ch9">석회제거</label>
+          </div>
+          <hr class="line_break">
+
+          <label>결제 방식:</label>
+          <input type="checkbox" id="ch1" value="카드" name="pay_option"><label class="light" for="ch1">카드</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch2" value="현금" name="pay_option"><label class="light" for="ch2">현금</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch3" value="이체" name="pay_option"><label class="light" for="ch3">이체</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch4" value="정산" name="pay_option"><label class="light" for="ch4">정산</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="ch5" value="서비스" name="pay_option"><label class="light" for="ch5">서비스</label>
+          <hr class="line_break">
+
+          <label for="cost">금액(천원):</label>
+          <input type="number" id="cost" name="cost" placeholder="금액을 입력해주세요">
+          <label for="remark_word">비고:</label>
+          <input type="text" id="remark_word" name="remark_word" placeholder="특이사항을 입력해주세요">
+        </fieldset>
+        <button type="submit" class="save_button" onclick="return confirm('차량 번호: ' + document.getElementById('car_num').value + '\n' + '차량 종류: ' + document.getElementById('car_type').value + '\n' + '금액: ' + document.getElementById('cost').value + '000원'+ '\n' + '현재 정보를 입력합니까?')">입력 정보 저장  <i class="fa-solid fa-share-from-square"></i></button>
+      </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>

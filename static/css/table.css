@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #384047;
+}
+
+a, h1       { color: #377BA8; }
+
+h2 {
+ color: #A88237;
+ font-family: 'Jua', sans-serif;
+ font-size: 1.6em;
+ font-weight: 300;
+ width: 100%;
+ margin: 0;
+ text-indent: 0.5em;
+ text-align: center;
+ align-items: center;
+ justify-content: center;
+}
+
+h3 {
+ color: #377BA8;
+ font-family: 'Jua', sans-serif;
+ font-size: 1.6em;
+ font-weight: 300;
+ width: 100%;
+ margin: 0;
+ text-indent: 0.5em;
+}
+
+h1 {
+ font-family: 'Black Han Sans', sans-serif;
+ font-size: 2.5em;
+ font-weight: 300;
+ width: 100%;
+ margin: 0;
+ text-align: center;
+ align-items: center;
+ justify-content: center;
+}
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 20px;
+  margin-bottom: 40px;
+  font-size: 1.0em;
+}
+
+.top_menu {
+  margin: 0 0 10px 0;
+  padding: 0px 0px;
+}
+
+.top_button {
+  font-family: 'Black Han Sans', sans-serif;
+  background-color: white;
+  font-size: 1.0em;
+  padding: 10px 20px;
+  border: none;
+  margin: auto 0 auto auto;
+  text-align: right;
+}
+
+.more_button {
+  font-family: 'Black Han Sans', sans-serif;
+  background-color: white;
+  color: black;
+  font-size: 1.0em;
+  padding: 10px 20px;
+  border: none;
+  margin: auto 0 auto auto;
+  text-align: right;
+  text-decoration: none;
+}
+
+.blue_data th {
+    background-color: #25DCC9;
+    color: white;
+}
+
+.green_data th {
+    background-color: #77DD77;
+    color: white;
+}
+
+tr:nth-child(odd)     { background-color:#eee; }
+tr:nth-child(even) { background-color:#fff; }
+
+tr:hover            { background-color: #FFFF99;}
+
+input[type="date"] {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.1);
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 46.9%;
+  background-color: #E2E6E7;
+  color: black;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 10px;
+}
+
+.content_form {
+  max-width: 350px;
+  margin: 10px auto;
+  padding: 5px 5px;
+  border: none;
+  background: #F6F8F9;
+}
+
+input[type='date']:before {
+  color: black;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+input[type="date"]:focus {
+  transition: border background .2s linear;
+  border: 2px solid green;
+  background-color: #FFFFFF;
+}
+
+.submit_button {
+  font-family: 'Black Han Sans', sans-serif;
+  padding: 10px 10px 10px 10px;
+  color: #FFF;
+  background-color: #4BC970;
+  font-size: 20px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3AC162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 480px) {
+
+  .content_form {
+    max-width: 480px;
+  }
+}
